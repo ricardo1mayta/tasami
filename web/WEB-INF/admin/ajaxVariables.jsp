@@ -9,17 +9,17 @@
 
         <tr>
             <th >ID</th>
-            <th >NAME</th>
+            <th >DEVICE</th>
             <th >DESCRIPTION</th>
-            <th >MESSAGE ONE</th>
-            <th >MESSAGE TWO</th>
+            <th >MESSAGE NORMAL</th>
+            <th >MESSAGE ACTIVE</th>
             <th >LOCATION</th>
             <th >PANEL</th>
             <th >USER EDIT</th>
-            <th >TYPE SIGNAL</th>
-            <th >TYPE SENSOR</th>
-            <th >Img1</th>
-            <th >Img2</th>
+            <th >CONDITIONS</th>
+            <th >TYPE DEVICE</th>
+            <th >MAP LOCATION</th>
+            <th >PHOTO</th>
             <th colspan="3">Opciones</th>
         </tr>
     </thead>
@@ -43,9 +43,9 @@
             <td ><%= x.getTipoestado()%></td> 
             <td ><%= x.getTipo()%></td> 
 
-            <td ><img src="./Public/imagen/mapas/location/<%= x.getImg1()%>" width="100"></td>
-            <td ><img src="./Public/imagen/mapas/location/<%= x.getImg2()%>" width="100"></td>
-            <td> <button type="button" class="btn btn-primary pull-right" data-name="<%= x.getNombre()%>" data-desc="<%= x.getDescripcion()%>" data-mes2="<%= x.getMensage1()%>" data-mes1="<%= x.getMensage0()%>" 
+            <td ><img src="./Public/imagen/mapas/dispositivos/<%= x.getImg1()%>" width="100"></td>
+            <td ><img src="./Public/imagen/mapas/dispositivos/<%= x.getImg2()%>" width="100"></td>
+            <td> <button type="button" class="btn btn-primary pull-right" data-id="<%= x.getIdvar()%>" data-name="<%= x.getNombre()%>" data-desc="<%= x.getDescripcion()%>" data-mes2="<%= x.getMensage1()%>" data-mes1="<%= x.getMensage0()%>" 
                          data-idlocation="<%= x.getIdubicacion()%>" data-idpanel="<%= x.getIdpanel()%>" data-idtipo="<%= x.getIdtipo()%>"  data-toggle="modal" data-target="#editlocation">Edit</button></td>
             <td> <button type="button" class="btn btn-danger pull-right" data-name="<%= x.getNombre()%>" data-idlocation="<%= x.getCreado()%>" data-toggle="modal" data-target="#deletelocation">Delete</button></td>
 

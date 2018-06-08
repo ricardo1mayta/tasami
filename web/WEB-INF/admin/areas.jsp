@@ -32,9 +32,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Monitoreo</a>
+                <a href="">Admin</a>
             </li>
-            <li class="breadcrumb-item active">Eventos</li>
+            <li class="breadcrumb-item active">Areas</li>
         </ol>
         <div class="row">
             <div class="col-md-12">

@@ -39,6 +39,8 @@ public class servletEventos extends HttpServlet {
         if (path.equals("/ajaxEventos")) {
             ArrayList<DLEventos> lista = eventosDAO.eventos();
             request.setAttribute("listaeventos", lista);
+            ArrayList<DLEventos> lista2 = eventosDAO.eventos2();
+            request.setAttribute("listaeventos2", lista2);
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/principal/ajaxEventos.jsp");
             rd.forward(request, response);
         }

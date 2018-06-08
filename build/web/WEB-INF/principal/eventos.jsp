@@ -9,13 +9,19 @@
             function ()
             {
                 $('#tablaeventos').load('ajaxEventos').fadeIn("slow");
-            }, 500); // autorefresh the content of the div after
+            }, 1000); // autorefresh the content of the div after
     //every 10000 milliseconds(10sec)
 
 </script>
 <style>
     #audio{
         display: none
+    }
+    .bg-purpure{
+        background-color: #FF00FF;
+    }
+    .bg-red2{
+        background-color:#FF0000;
     }
 </style>
 <%@include file="../includes/menu1.jsp" %>

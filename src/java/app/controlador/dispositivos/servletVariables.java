@@ -10,12 +10,12 @@ import app.DAO.LocationDao;
 import app.DAO.PanelDAO;
 import app.DAO.TiposignalDAO;
 import app.DAO.TipovariableDAO;
+import app.DAO.VariablesDAO;
 import app.pojos.bean.DLAreas;
 import app.pojos.bean.DLLocation;
 import app.pojos.bean.DLPanel;
 import app.pojos.bean.DLTiposignal;
 import app.pojos.bean.DLTipovariables;
-
 
 import app.pojos.bean.DLTiposignal;
 import com.oreilly.servlet.MultipartRequest;
@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Ricardo
  */
-@WebServlet(name = "serveletVariables", urlPatterns = {"/serveletVariables","/sensors"})
+@WebServlet(name = "serveletVariables", urlPatterns = {"/serveletVariables", "/sensors", "/updateSensor"})
 public class servletVariables extends HttpServlet {
 
     /**
@@ -48,39 +48,40 @@ public class servletVariables extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String path = request.getServletPath();
+        String path = request.getServletPath();
+        
         if (path.equals("/sensors")) {
-            
+
             ArrayList<DLTiposignal> lista2 = TiposignalDAO.tiposignal();
-            request.setAttribute("tiposignal", lista2);            
+            request.setAttribute("tiposignal", lista2);
             ArrayList<DLTipovariables> lista3 = TipovariableDAO.tipovariable();
             request.setAttribute("tipovariable", lista3);
-             ArrayList<DLPanel> listap = PanelDAO.panel();
+            ArrayList<DLPanel> listap = PanelDAO.panel();
             request.setAttribute("panels", listap);
             ArrayList<DLLocation> listal = LocationDao.location();
             request.setAttribute("location", listal);
-           RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/variables.jsp");
-           rd.forward(request, response);
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/variables.jsp");
+            rd.forward(request, response);
         }
- if (path.equals("/deleteLocation")) {
+        if (path.equals("/deleteLocation")) {
             Integer idlocation = Integer.parseInt(request.getParameter("idlocation"));
-           
-                try {
 
-                    String ms = "";
-                    if (idlocation > 0) {
-                        ms = LocationDao.deletelocation(idlocation);
-                    }
+            try {
 
-                    if (ms.equals("ok")) {
-                        request.setAttribute("msgsuccess", ms + " Delete!!");
-                    } else {
-                        request.setAttribute("msgError", ms + " Error!!");
-                    }
-
-                } catch (Exception e) {
-                    request.setAttribute("msgError", e + " Error!!");
+                String ms = "";
+                if (idlocation > 0) {
+                    ms = LocationDao.deletelocation(idlocation);
                 }
+
+                if (ms.equals("ok")) {
+                    request.setAttribute("msgsuccess", ms + " Delete!!");
+                } else {
+                    request.setAttribute("msgError", ms + " Error!!");
+                }
+
+            } catch (Exception e) {
+                request.setAttribute("msgError", e + " Error!!");
+            }
             ArrayList<DLAreas> lista = AreasDao.areas();
             request.setAttribute("areas", lista);
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/location.jsp");
@@ -116,17 +117,17 @@ public class servletVariables extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getServletPath();
 
-        if (path.equals("/saveLocation")) {
-            
+        if (path.equals("/saveSensor")) {
+
             try {
-                
+
                 String root = getServletContext().getRealPath("/Public/imagen/mapas/location/");
                 MultipartRequest mr = new MultipartRequest(request, root);
                 String nombre = mr.getParameter("nombre");
-               
+
                 Integer idarea = 0;
                 idarea = Integer.parseInt(mr.getParameter("area"));
-               
+
                 String img = null;
                 img = mr.getOriginalFileName("img");
 
@@ -134,60 +135,68 @@ public class servletVariables extends HttpServlet {
                 if (nombre.equals(null) || nombre.equals("")) {
                     ms = " Datos NUlL ";
                 } else {
-                    ms = LocationDao.savelocation(nombre,idarea,img);
+                    ms = LocationDao.savelocation(nombre, idarea, img);
                 }
                 if (ms.equals("ok")) {
                     request.setAttribute("msgsuccess", ms + " Add!!");
                 } else {
                     request.setAttribute("msgError", ms + " Error!!");
                 }
-                
+
             } catch (Exception e) {
                 request.setAttribute("msgError", e + " Error!!");
             }
-              
-           ArrayList<DLAreas> lista = AreasDao.areas();
-            request.setAttribute("areas", lista);
-           RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/location.jsp");
-           rd.forward(request, response);
+
+             
+            
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/location.jsp");
+            rd.forward(request, response);
         }
 
-        if (path.equals("/updateLocation")) {
-           
-            try {
-                 
-                String root = getServletContext().getRealPath("/Public/imagen/mapas/location/");
-                MultipartRequest mr = new MultipartRequest(request, root);
-                String nombre = mr.getParameter("nombre");
-               
-                
-                Integer idlocation = Integer.parseInt(mr.getParameter("idlocation"));
-                Integer idarea = Integer.parseInt(mr.getParameter("area"));
-                 
-               String img = mr.getOriginalFileName("img");
-                
-                String ms = "";
-                if (idlocation > 0) {
-                    ms = LocationDao.updatelocation(idlocation, nombre, img,idarea);
+        if (path.equals("/updateSensor")) {
 
-                }
+             
+                try {
+                    String root = getServletContext().getRealPath("/Public/imagen/mapas/dispositivos/");
+                    MultipartRequest mr = new MultipartRequest(request, root);
+                    int idvariable = Integer.parseInt(mr.getParameter("id"));
+                    String nombre = mr.getParameter("name");
+                    String desc = mr.getParameter("description");
+                    String mess1 = mr.getParameter("message1");
+                    String mess2 = mr.getParameter("message2");
+                    Integer idlocation = Integer.parseInt(mr.getParameter("location"));
+                    Integer idpanel = Integer.parseInt(mr.getParameter("panel"));
+                    Integer idsignal = Integer.parseInt(mr.getParameter("signal"));
+                    Integer idtiposensor = Integer.parseInt(mr.getParameter("tiposensor"));
+                    String img1 = mr.getOriginalFileName("img1");
+                    String img2 = mr.getOriginalFileName("img2");
+                    //out.println(nombre + "| |" + desc + "| |" + mess1 + "| |" + mess2 + "| |" + idlocation + "| |" + idpanel + "| |" + idsignal + "| |" + idtiposensor + "| |" + img1 + "| |" + img2);
+                    String ms = "";
+                    if (idvariable > 0) {
+                        ms = VariablesDAO.updatevariable(idvariable, nombre, desc, mess1, mess2, idsignal, 1, 1, idtiposensor, idpanel, idlocation, img1, img2);
+                       //  out.println("ejetuto:"+ms);
+                    }
+                    if (ms.equals("ok")) {
+                        request.setAttribute("msgsuccess", ms + " Update!!");
+                       // out.println("Ok:"+ms);
+                    } else {
+                        request.setAttribute("msgError", ms + " Error!!");
+                       // out.println("error:"+ms);
+                    }                    
+                } catch (Exception e) {
+                    request.setAttribute("msgError", e + " Error!!");
+                   // out.println(e);
+                }          
 
-                if (ms.equals("ok")) {
-                    request.setAttribute("msgsuccess", ms + " Update!!");
-                } else {
-                    request.setAttribute("msgError", ms + " Error!!");
-                }
-              
-            } catch (Exception e) {
-                request.setAttribute("msgError", e + " Error!!");
-                
-            }  
-            
-            
-              ArrayList<DLAreas> lista = AreasDao.areas();
-            request.setAttribute("areas", lista);
-           
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/location.jsp");
+            ArrayList<DLTiposignal> lista2 = TiposignalDAO.tiposignal();
+            request.setAttribute("tiposignal", lista2);
+            ArrayList<DLTipovariables> lista3 = TipovariableDAO.tipovariable();
+            request.setAttribute("tipovariable", lista3);
+            ArrayList<DLPanel> listap = PanelDAO.panel();
+            request.setAttribute("panels", listap);
+            ArrayList<DLLocation> listal = LocationDao.location();
+            request.setAttribute("location", listal);
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/variables.jsp");
             rd.forward(request, response);
         }
     }

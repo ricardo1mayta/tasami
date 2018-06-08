@@ -37,9 +37,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Monitoreo</a>
+                <a href="">Admin</a>
             </li>
-            <li class="breadcrumb-item active">Eventos</li>
+            <li class="breadcrumb-item active">Sensors</li>
         </ol>
         <div class="row">
             <div class="col-md-12">
@@ -63,17 +63,12 @@
                 <%  }%>
                 <div class="card " >  
                     <div class="card-header">
-                        <h4>Location</h4>
+                        <h4>Sensor´s</h4>
                     </div>
                     <div class="card-body">
                         <div class="col-md-12">
-                            <div class="col-md-12">
 
-                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#addlocation">Add +</button>
-                            </div>
-
-                            <br>
-                            <div class="col-md-12" id="reslocation">
+                            <div class="col-md-12 table-responsive-lg"  id="reslocation">
 
                             </div>
                         </div>
@@ -105,19 +100,21 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Edit Location</h4>
+                <h4 class="modal-title">Edit Sensor</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body"> 
-                
-                <form class="form-horizontal">
+
+                <form class="form-horizontal" action="updateSensor" method="post" enctype="multipart/form-data">
                     <div class="container">
                         <div class="row">
                             <div class="form-group form-group-sm col-sm-12">
+                                 <input type="hidden" class="form-control" id="" name="id">
                                 <div class="row">
-                                    <label for="first_name" class="col-sm-3 col-form-label">Name</label>
+                                    <label for="first_name" class="col-sm-3 col-form-label">Device</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="first_name" name="name">
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +122,7 @@
                                 <div class="row">
                                     <label for="first_name" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-9">
-                                        <textarea  class="form-control" id="first_name" name="description"></textarea>
+                                        <textarea  class="form-control" id="first_name" name="description">...</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +130,7 @@
                                 <div class="row">
                                     <label for="Street" class="col-sm-3 col-form-label">Image of Sensor</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control"  name="img">         
+                                        <input type="file" class="form-control"  name="img2">         
                                     </div>
                                 </div>
                             </div>
@@ -141,25 +138,25 @@
                                 <div class="row">
                                     <label for="last_name" class="col-sm-3 col-form-label">Message Normal</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="last_name" name="message1">
+                                        <input type="text" class="form-control" id="last_name"  name="message1">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-group-sm col-sm-12">
                                 <div class="row">
-                                    <label for="Street" class="col-sm-3 col-form-label">Message Two</label>
+                                    <label for="Street" class="col-sm-3 col-form-label">Message Active</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="Street" name="message2">
+                                        <input type="text" class="form-control" id="Street"  name="message2">
                                     </div>
                                 </div>
                             </div>          
-                            
+
                             <div class="form-group form-group-sm col-sm-12">
                                 <div class="row">
                                     <label for="City" class="col-sm-3 col-form-label">Location</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" id="idlocatione" name="area">
-                                            <option>Select</option>
+                                        <select class="form-control" id="idlocatione" name="location">
+                                            <option value="0">Select</option>
                                             <%
                                                 ArrayList<DLLocation> lista22 = (ArrayList<DLLocation>) request.getAttribute("location");
 
@@ -177,7 +174,7 @@
                                 <div class="row">
                                     <label for="Street" class="col-sm-3 col-form-label">Map of Location</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control"  name="img">         
+                                        <input type="file" class="form-control"  name="img1">         
                                     </div>
                                 </div>
                             </div>
@@ -185,8 +182,8 @@
                                 <div class="row">
                                     <label for="City" class="col-sm-3 col-form-label">Panel</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" id="idpanele" name="area">
-                                            <option>Select</option>
+                                        <select class="form-control" id="idpanele" name="panel">
+                                            <option value="0">Select</option>
                                             <%
                                                 ArrayList<DLPanel> listappp = (ArrayList<DLPanel>) request.getAttribute("panels");
 
@@ -202,10 +199,10 @@
                             </div>
                             <div class="form-group form-group-sm col-sm-12">
                                 <div class="row">
-                                    <label for="City" class="col-sm-3 col-form-label">Type Signal</label>
+                                    <label for="City" class="col-sm-3 col-form-label">Coditions</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" name="area">
-                                            <option>Select</option>
+                                        <select class="form-control" name="signal">
+                                            <option value="0">Select</option>
                                             <%
                                                 ArrayList<DLTiposignal> listas = (ArrayList<DLTiposignal>) request.getAttribute("tiposignal");
 
@@ -221,10 +218,10 @@
                             </div>
                             <div class="form-group form-group-sm col-sm-12">
                                 <div class="row">
-                                    <label for="City" class="col-sm-3 col-form-label">Type Sensor</label>
+                                    <label for="City" class="col-sm-3 col-form-label">Type Device</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" name="area">
-                                            <option>Select</option>
+                                        <select class="form-control" name="tiposensor">
+                                            <option value="0">Select</option>
                                             <%
                                                 ArrayList<DLTipovariables> listav = (ArrayList<DLTipovariables>) request.getAttribute("tipovariable");
 
@@ -242,14 +239,14 @@
                         </div>
 
                     </div>
-                </form>
                 
-               
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>
@@ -284,15 +281,16 @@
         var name = $(e.relatedTarget).data('name');
         var desc = $(e.relatedTarget).data('desc');
         var mes1 = $(e.relatedTarget).data('mes1');
-         var mes2 = $(e.relatedTarget).data('mes2');
-         var idpanel = $(e.relatedTarget).data('idpanel');
-         var idlocation = $(e.relatedTarget).data('idlocation');
-       
+        var mes2 = $(e.relatedTarget).data('mes2');
+        var idpanel = $(e.relatedTarget).data('idpanel');
+        var idlocation = $(e.relatedTarget).data('idlocation');
+        var id = $(e.relatedTarget).data('id');
 
         $(e.currentTarget).find('input[name="name"]').val(name);
         $(e.currentTarget).find('textarea[name="description"]').val(desc);
         $(e.currentTarget).find('input[name="message1"]').val(mes1);
         $(e.currentTarget).find('input[name="message2"]').val(mes2);
+        $(e.currentTarget).find('input[name="id"]').val(id);
         $("#idlocatione").val(idlocation);
         $("#idpanele").val(idpanel);
     });

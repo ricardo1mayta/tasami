@@ -33,9 +33,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Monitoreo</a>
+                <a href="">Admin</a>
             </li>
-            <li class="breadcrumb-item active">Eventos</li>
+            <li class="breadcrumb-item active">Location</li>
         </ol>
         <div class="row">
             <div class="col-md-12">
@@ -219,15 +219,15 @@
         $(e.currentTarget).find('input[name="idlocation"]').val(idlocation);
         $("#arealocatione").val(idarea);
     });
-    
+
     $('#deletelocation').on('show.bs.modal', function (e) {
         var name = $(e.relatedTarget).data('name');
         var idlocation = $(e.relatedTarget).data('idlocation');
-        
+
 
         $(e.currentTarget).find('input[name="nombre"]').val(name);
         $(e.currentTarget).find('input[name="idlocation"]').val(idlocation);
-        
+
     });
 
 

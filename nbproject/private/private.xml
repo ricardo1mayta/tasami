@@ -3,24 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/AreasDao.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/pojos/bean/DLTiposignal.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/controlador/location/servletLocation.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/eventosDAO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/UsuariosDAO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/MenuDAO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/variables.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/controlador/dispositivos/servletVariables.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/pojos/bean/DLTipovariables.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/panel.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/admin.jsp</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/VariablesDAO.java</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/ajaxVariables.jsp</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/TiposignalDAO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/PanelDAO.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/controlador/location/servletLocation.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/location.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/areas.jsp</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/LocationDao.java</file>
             <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/controlador/admin/servletAdmin.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/conexion/tett.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/DAO/TipovariableDAO.java</file>
-            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/pojos/bean/DLDispositivos.java</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/web/WEB-INF/admin/variables.jsp</file>
+            <file>file:/C:/Users/Ricardo/Documents/NetBeansProjects/tasami/src/java/app/controlador/dispositivos/servletVariables.java</file>
         </group>
     </open-files>
 </project-private>

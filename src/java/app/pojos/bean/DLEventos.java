@@ -10,14 +10,28 @@ package app.pojos.bean;
  * @author Ricardo
  */
 public class DLEventos {
+
     private int idevento;
     private String idvariable;
     private String fechainicio;
     private String fechafin;
     private String estado;
-    private String estado2;
-    private String orden;
+    private String nombre;
+    private int idtipoestados;
+    private String mensage0;
+    private String mensage1;
+    private String panel;
+    private String ubicacion;
+    private String tipoestado;
+    private String tipovariable;
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     public int getIdevento() {
         return idevento;
     }
@@ -58,21 +72,60 @@ public class DLEventos {
         this.estado = estado;
     }
 
-    public String getEstado2() {
-        return estado2;
+    public int getIdtipoestados() {
+        return idtipoestados;
     }
 
-    public void setEstado2(String estado2) {
-        this.estado2 = estado2;
+    public void setIdtipoestados(int idtipoestados) {
+        this.idtipoestados = idtipoestados;
     }
 
-    public String getOrden() {
-        return orden;
+    public String getMensage0() {
+        return mensage0;
     }
 
-    public void setOrden(String orden) {
-        this.orden = orden;
+    public void setMensage0(String mensage0) {
+        this.mensage0 = mensage0;
     }
-    
-  
+
+    public String getMensage1() {
+        return mensage1;
+    }
+
+    public void setMensage1(String mensage1) {
+        this.mensage1 = mensage1;
+    }
+
+    public String getPanel() {
+        return panel;
+    }
+
+    public void setPanel(String panel) {
+        this.panel = panel;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getTipoestado() {
+        return tipoestado;
+    }
+
+    public void setTipoestado(String tipoestado) {
+        this.tipoestado = tipoestado;
+    }
+
+    public String getTipovariable() {
+        return tipovariable;
+    }
+
+    public void setTipovariable(String tipovariable) {
+        this.tipovariable = tipovariable;
+    }
+
 }

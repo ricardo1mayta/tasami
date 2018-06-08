@@ -27,25 +27,25 @@ public class tett {
          cn=Conexion.abrir();
          
      System.out.println("jfkdjfk");*/
-         /*
+         
          ArrayList<DLDispositivos> lista =VariablesDAO.dispositivos();
         int n = 0;
         String res = "";
         for (DLDispositivos x : lista) {
             System.out.println(x.getIdvariable());
         }
-        
+        /*
         String ms= AreasDao.savearea("RDDrtd","jdjd.com");
         System.out.println("ms"+ms);
          */
-         
+           /* 
         ArrayList<DLTipovariables> lista =TipovariableDAO.tipovariable();
         int n = 0;
         String res = "";
         for (DLTipovariables x : lista) {
           System.out.println(x.getNombre());
         }
-        /*
+     
         String ms= AreasDao.savearea("RDDrtd","jdjd.com");
         System.out.println("ms"+ms);*/
     }
